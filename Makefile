@@ -1,8 +1,8 @@
 include ./env
 
-all: 
+all: clean
 	${MAKE} proj_setup
-	${MAKE} apply_mod
+	# ${MAKE} apply_mod
 	${MAKE} syn
 
 proj_setup:

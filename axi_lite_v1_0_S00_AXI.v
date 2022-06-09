@@ -400,7 +400,7 @@
 	// Add user logic here
 	always@(posedge S_AXI_ACLK)
 	begin
-	    slv_reg0 <= slv_reg1 * slv_reg2;
+	    slv_reg0 <= slv_reg1 * slv_reg2 + slv_reg3;
 	end
 	// User logic ends
 
