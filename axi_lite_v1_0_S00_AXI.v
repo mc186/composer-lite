@@ -398,10 +398,8 @@
 	end    
 
 	// Add user logic here
-	always@(posedge S_AXI_ACLK)
-	begin
-	    slv_reg0 <= slv_reg1 * slv_reg2 + slv_reg3;
-	end
+		adder adder_1(S_AXI_ACL, slv_reg1, slv_reg2, slv_reg0);
+		
 	// User logic ends
 
 	endmodule
