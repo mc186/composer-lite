@@ -1,5 +1,6 @@
 
 `timescale 1 ns / 1 ps
+`include "user_logic.v"
 
 	module axi_lite_v1_0_S00_AXI #
 	(
@@ -108,6 +109,7 @@
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;
+	wire [C_S_AXI_DATA_WIDTH-1:0]	slv_out;
 	wire	 slv_reg_rden;
 	wire	 slv_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
@@ -398,8 +400,12 @@
 	end    
 
 	// Add user logic here
-		adder adder_1(S_AXI_ACL, slv_reg1, slv_reg2, slv_reg0);
-		
+	adder adder_1(slv_reg1, slv_reg2, slv_out);
+	
+	always@(posedge S_AXI_ACLK)
+	begin
+	    slv_reg0 <= slv_out;
+	end
 	// User logic ends
 
 	endmodule
