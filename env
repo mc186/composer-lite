@@ -1,4 +1,4 @@
-PROJECT_NAME = composer-lite-helloworld
+PROJECT_NAME = composer-lite-adder
 FPGA_HOST = 10.0.0.89
 FPGA_USER = root
 FPGA_PATH = /home/root/jupyter_notebooks/
