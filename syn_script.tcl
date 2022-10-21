@@ -36,7 +36,7 @@ endgroup
 apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {Auto} Clk_slave {Auto} Clk_xbar {Auto} Master {/zynq_ultra_ps_e_0/M_AXI_HPM1_FPD} Slave {/axi_lite_0/S00_AXI} ddr_seg {Auto} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins axi_lite_0/S00_AXI]
 ## Create HDL Wrapper
 make_wrapper -files [get_files $project_path/${project_name}.srcs/sources_1/bd/design_1/design_1.bd] -top
-add_files -norecurse $project_path/${project_name}.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+add_files -norecurse -scan_for_includes $project_path/${project_name}.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
 
 # Synthesis & Implementation & Generate Bit-stream
 launch_runs impl_1 -to_step write_bitstream -jobs $num_threads
