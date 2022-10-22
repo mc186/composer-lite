@@ -1,6 +1,5 @@
 
 `timescale 1 ns / 1 ps
-`include "user_logic.v"
 
 	module axi_lite_v1_0_S00_AXI #
 	(
@@ -408,4 +407,10 @@
 	end
 	// User logic ends
 
+	endmodule
+
+	module adder (input reg [31:0] a,
+		      input reg [31:0] b,
+		      output reg [31:0] c);
+  		assign c= a + b;
 	endmodule
